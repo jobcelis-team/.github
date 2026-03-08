@@ -7,7 +7,7 @@
 Publish events, configure webhooks with advanced filters, receive real-time deliveries,<br>and schedule recurring jobs — all through a single API.
 
 [![Website](https://img.shields.io/badge/Website-jobcelis.com-0969da?style=for-the-badge&logo=google-chrome&logoColor=white)](https://jobcelis.com)
-[![API Docs](https://img.shields.io/badge/API_Docs-Swagger_UI-85ea2d?style=for-the-badge&logo=swagger&logoColor=black)](https://jobcelis.com/api/swaggerui)
+[![Docs](https://img.shields.io/badge/Docs-jobcelis.com-85ea2d?style=for-the-badge&logo=readthedocs&logoColor=black)](https://jobcelis.com/docs)
 [![License](https://img.shields.io/badge/License-BSL_1.1-333?style=for-the-badge)](https://github.com/jobcelis-team/jobscelis/blob/main/LICENSE)
 
 ---
@@ -191,7 +191,7 @@ Official SDKs with **full API coverage** across **15 languages and tools**:
 
 <div align="center">
 
-**[Documentation](https://jobcelis.com/docs)** · **[API Reference](https://jobcelis.com/api/swaggerui)** · **[Get Started](https://jobcelis.com/signup)**
+**[Documentation](https://jobcelis.com/docs)** · **[Get Started](https://jobcelis.com/signup)**
 
 <sub>Built with Elixir/OTP for reliability and concurrency at scale.</sub>
 
