@@ -2,9 +2,9 @@
 
 # Jobcelis
 
-### Event Infrastructure for Developers
+### Stop rebuilding webhook infrastructure for every project
 
-Publish events, configure webhooks with advanced filters, receive real-time deliveries,<br>schedule recurring jobs, and build event-driven pipelines — all through a single API.
+Send events, route webhooks, schedule jobs — one API handles routing,<br>retries, filtering, and delivery tracking so you focus on your product.
 
 [![Website](https://img.shields.io/badge/Website-jobcelis.com-0969da?style=for-the-badge&logo=google-chrome&logoColor=white)](https://jobcelis.com)
 [![Docs](https://img.shields.io/badge/Docs-jobcelis.com%2Fdocs-85ea2d?style=for-the-badge&logo=readthedocs&logoColor=black)](https://jobcelis.com/docs)
@@ -17,6 +17,16 @@ Publish events, configure webhooks with advanced filters, receive real-time deli
 **Elixir/OTP** · **Phoenix 1.8** · **LiveView** · **PostgreSQL** · **REST + SSE + WebSocket**
 
 </div>
+
+<br>
+
+## The Problem
+
+Every app that talks to other services needs webhook infrastructure — HTTP clients, retry logic, failure queues, delivery tracking, filtering. Developers rebuild this in every project.
+
+**Jobcelis solves it once.** Send events through one API. We handle routing, retries, dead letters, transformations, and full delivery tracking. You focus on your product.
+
+> *"It's like having Stripe's webhook infrastructure, but for any app — and it's free."*
 
 <br>
 
