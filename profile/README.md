@@ -59,52 +59,52 @@ Official SDKs with **full API coverage** across **15 languages and tools**:
       <td align="center"><code>pip install jobcelis</code></td>
     </tr>
     <tr>
-      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="16"> <a href="https://github.com/vladimirCeli/go-jobcelis">Go</a></td>
+      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="16"> <a href="https://github.com/jobcelis-team/go-jobcelis">Go</a></td>
       <td><code>go-jobcelis</code></td>
-      <td align="center"><code>go get github.com/vladimirCeli/go-jobcelis</code></td>
+      <td align="center"><code>go get github.com/jobcelis-team/go-jobcelis</code></td>
     </tr>
     <tr>
-      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="16"> <a href="https://github.com/vladimirCeli/jobcelis-php">PHP</a></td>
+      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="16"> <a href="https://github.com/jobcelis-team/jobcelis-php">PHP</a></td>
       <td><code>jobcelis/sdk</code></td>
       <td align="center"><code>composer require jobcelis/sdk</code></td>
     </tr>
     <tr>
-      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" width="16"> <a href="https://github.com/vladimirCeli/jobcelis-ruby">Ruby</a></td>
+      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" width="16"> <a href="https://github.com/jobcelis-team/jobcelis-ruby">Ruby</a></td>
       <td><code>jobcelis</code></td>
       <td align="center"><code>gem install jobcelis</code></td>
     </tr>
     <tr>
-      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elixir/elixir-original.svg" width="16"> <a href="https://github.com/vladimirCeli/jobcelis-elixir">Elixir</a></td>
+      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elixir/elixir-original.svg" width="16"> <a href="https://github.com/jobcelis-team/jobcelis-elixir">Elixir</a></td>
       <td><code>jobcelis</code></td>
       <td align="center"><code>{:jobcelis, "~> 1.0"}</code></td>
     </tr>
     <tr>
-      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="16"> <a href="https://github.com/vladimirCeli/jobcelis-dotnet">C# / .NET</a></td>
+      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="16"> <a href="https://github.com/jobcelis-team/jobcelis-dotnet">C# / .NET</a></td>
       <td><code>Jobcelis</code></td>
       <td align="center"><code>dotnet add package Jobcelis</code></td>
     </tr>
     <tr>
-      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg" width="16"> <a href="https://github.com/vladimirCeli/jobcelis-rust">Rust</a></td>
+      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg" width="16"> <a href="https://github.com/jobcelis-team/jobcelis-rust">Rust</a></td>
       <td><code>jobcelis</code></td>
       <td align="center"><code>cargo add jobcelis</code></td>
     </tr>
     <tr>
-      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" width="16"> <a href="https://github.com/vladimirCeli/jobcelis-swift">Swift</a></td>
+      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" width="16"> <a href="https://github.com/jobcelis-team/jobcelis-swift">Swift</a></td>
       <td>SPM</td>
-      <td align="center"><code>.package(url: "...jobcelis-swift")</code></td>
+      <td align="center"><code>.package(url: "...jobcelis-team/jobcelis-swift")</code></td>
     </tr>
     <tr>
-      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="16"> <a href="https://github.com/vladimirCeli/jobcelis-java">Java</a></td>
+      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="16"> <a href="https://github.com/jobcelis-team/jobcelis-java">Java</a></td>
       <td><code>com.jobcelis</code></td>
       <td align="center">Maven / Gradle</td>
     </tr>
     <tr>
-      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" width="16"> <a href="https://github.com/vladimirCeli/jobcelis-dart">Dart / Flutter</a></td>
+      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" width="16"> <a href="https://github.com/jobcelis-team/jobcelis-dart">Dart / Flutter</a></td>
       <td><code>jobcelis</code></td>
       <td align="center"><code>dart pub add jobcelis</code></td>
     </tr>
     <tr>
-      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="16"> <a href="https://github.com/vladimirCeli/jobcelis-kotlin">Kotlin</a></td>
+      <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="16"> <a href="https://github.com/jobcelis-team/jobcelis-kotlin">Kotlin</a></td>
       <td><code>com.jobcelis</code></td>
       <td align="center">Maven / Gradle</td>
     </tr>
@@ -119,9 +119,9 @@ Official SDKs with **full API coverage** across **15 languages and tools**:
       <td align="center"><code>uses: jobcelis-team/jobscelis/sdks/github-action@main</code></td>
     </tr>
     <tr>
-      <td>🏗️ <a href="https://github.com/vladimirCeli/terraform-provider-jobcelis">Terraform</a></td>
+      <td>🏗️ <a href="https://github.com/jobcelis-team/terraform-provider-jobcelis">Terraform</a></td>
       <td>Provider</td>
-      <td align="center"><code>source = "vladimirCeli/jobcelis"</code></td>
+      <td align="center"><code>source = "jobcelis-team/jobcelis"</code></td>
     </tr>
   </tbody>
 </table>
@@ -160,7 +160,7 @@ Official SDKs with **full API coverage** across **15 languages and tools**:
   <tr>
     <td align="center">
       <br>
-      <strong>📡 90+ API Endpoints</strong><br><br>
+      <strong>📡 98+ API Endpoints</strong><br><br>
       JWT and API Key auth with OpenAPI 3.0 and interactive Swagger UI
       <br><br>
     </td>
