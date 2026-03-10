@@ -4,15 +4,17 @@
 
 ### Event Infrastructure for Developers
 
-Publish events, configure webhooks with advanced filters, receive real-time deliveries,<br>and schedule recurring jobs — all through a single API.
+Publish events, configure webhooks with advanced filters, receive real-time deliveries,<br>schedule recurring jobs, and build event-driven pipelines — all through a single API.
 
 [![Website](https://img.shields.io/badge/Website-jobcelis.com-0969da?style=for-the-badge&logo=google-chrome&logoColor=white)](https://jobcelis.com)
-[![Docs](https://img.shields.io/badge/Docs-jobcelis.com-85ea2d?style=for-the-badge&logo=readthedocs&logoColor=black)](https://jobcelis.com/docs)
+[![Docs](https://img.shields.io/badge/Docs-jobcelis.com%2Fdocs-85ea2d?style=for-the-badge&logo=readthedocs&logoColor=black)](https://jobcelis.com/docs)
 [![License](https://img.shields.io/badge/License-BSL_1.1-333?style=for-the-badge)](https://github.com/jobcelis-team/jobscelis/blob/main/LICENSE)
+[![Endpoints](https://img.shields.io/badge/API-98%2B_endpoints-6366f1?style=for-the-badge&logo=fastapi&logoColor=white)](https://jobcelis.com/docs#events)
+[![SDKs](https://img.shields.io/badge/SDKs-12_languages-f97316?style=for-the-badge&logo=npm&logoColor=white)](https://jobcelis.com/docs#sdks)
 
 ---
 
-**Elixir/OTP** · **Phoenix 1.8** · **LiveView** · **PostgreSQL**
+**Elixir/OTP** · **Phoenix 1.8** · **LiveView** · **PostgreSQL** · **REST + SSE + WebSocket**
 
 </div>
 
@@ -28,7 +30,187 @@ Publish events, configure webhooks with advanced filters, receive real-time deli
     </td>
     <td>
       <a href="https://github.com/jobcelis-team/jobscelis"><strong>jobscelis</strong></a><br>
-      REST API · Real-time Dashboard · Webhook Engine · Scheduled Jobs · Pipelines · GDPR · Security
+      REST API · Real-time Dashboard · Webhook Engine · Scheduled Jobs · Pipelines · Dead Letters · Replays · Event Schemas · Sandbox · Analytics · Audit Log · GDPR · Security
+    </td>
+  </tr>
+</table>
+
+<br>
+
+## Features
+
+### Core
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <br>
+      <strong>🔗 Webhooks</strong><br><br>
+      POST deliveries with exponential retries, circuit breaker, topic filters, body transforms, and HMAC-SHA256 signatures
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>📅 Scheduled Jobs</strong><br><br>
+      Daily, weekly, monthly, or cron expressions. Emit events or POST to external URLs with full execution history
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>🔄 Pipelines</strong><br><br>
+      Multi-step event processing with filter, transform, and delay steps. Test with sample payloads before deploying
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>⚡ Real-time Streaming</strong><br><br>
+      SSE via <code>/api/v1/stream</code> and WebSocket via Phoenix Channels. Live event and delivery updates
+      <br><br>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <br>
+      <strong>📦 Batch & Delayed Events</strong><br><br>
+      Send multiple events in a single request. Schedule future delivery with <code>deliver_at</code>
+      <br><br>
+    </td>
+    <td align="center">
+      <br>
+      <strong>💀 Dead Letters & Replays</strong><br><br>
+      Capture exhausted deliveries. Retry or resolve dead letters. Replay historical events by date range
+      <br><br>
+    </td>
+    <td align="center">
+      <br>
+      <strong>📐 Event Schemas</strong><br><br>
+      Define JSON Schema validations with versioning. Reject malformed payloads before processing
+      <br><br>
+    </td>
+    <td align="center">
+      <br>
+      <strong>🔑 Idempotency</strong><br><br>
+      Deduplication via <code>idempotency_key</code> in body or <code>X-Idempotency-Key</code> header. No duplicate deliveries
+      <br><br>
+    </td>
+  </tr>
+</table>
+
+### Platform & Operations
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <br>
+      <strong>👥 Teams & Multi-Project</strong><br><br>
+      Isolated workspaces with role-based access: owner, admin, editor, viewer. Invite members via email
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>📊 Analytics</strong><br><br>
+      Events/day, deliveries/day, top topics, webhook success rates, and latency metrics (p50/p95/p99)
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>📋 Audit Log</strong><br><br>
+      Immutable record of every action. Filter by actor, action type, and date range. Export as CSV or JSON
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>🧪 Sandbox</strong><br><br>
+      Temporary webhook endpoints for testing. Capture and inspect requests. Auto-cleanup on expiry
+      <br><br>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <br>
+      <strong>🔔 Alerts & Notifications</strong><br><br>
+      Get notified via Email, Slack, Discord, or custom webhooks when deliveries fail or circuits open
+      <br><br>
+    </td>
+    <td align="center">
+      <br>
+      <strong>🧩 Embed Portal</strong><br><br>
+      Generate scoped tokens for customers to manage their own webhooks from your app's UI
+      <br><br>
+    </td>
+    <td align="center">
+      <br>
+      <strong>📈 Prometheus Metrics</strong><br><br>
+      Export counters, gauges, and histograms for events, deliveries, latency, and circuit breakers
+      <br><br>
+    </td>
+    <td align="center">
+      <br>
+      <strong>📤 Data Export & Retention</strong><br><br>
+      Export events, deliveries, and audit logs in CSV/JSON. Configurable retention policies with dry-run preview
+      <br><br>
+    </td>
+  </tr>
+</table>
+
+### Security & Compliance
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <br>
+      <strong>🔒 Encryption & Auth</strong><br><br>
+      AES-256-GCM at rest, memory-hard password hashing, JWT + API Key auth with granular scopes
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>🛡️ MFA & Account Protection</strong><br><br>
+      TOTP two-factor auth with backup codes. Brute-force lockout, session management, and breach detection
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>🌍 GDPR / RGPD</strong><br><br>
+      Data export (Art. 15), restrict processing (Art. 18), object (Art. 21), consent versioning, and data portability
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>🏥 Reliability</strong><br><br>
+      Circuit breaker, outbound rate limiting, IP allowlist, webhook signature verification, and uptime monitoring
+      <br><br>
+    </td>
+  </tr>
+</table>
+
+### API & Developer Experience
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <br>
+      <strong>📡 98+ API Endpoints</strong><br><br>
+      Full REST API with cursor pagination, topic wildcards, and standardized error responses
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>📖 OpenAPI 3.0</strong><br><br>
+      Complete spec with interactive Swagger UI. Auto-generated from route definitions
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>🌐 Bilingual</strong><br><br>
+      Full English and Spanish support. Dashboard, docs, and API error messages in both languages
+      <br><br>
+    </td>
+    <td align="center" width="25%">
+      <br>
+      <strong>📄 Webhook Templates</strong><br><br>
+      Pre-configured templates for common integrations. Body config modes: full, pick, rename, extra
+      <br><br>
     </td>
   </tr>
 </table>
@@ -128,62 +310,19 @@ Official SDKs with **full API coverage** across **15 languages and tools**:
 
 <br>
 
-## Highlights
+## Quick Start
 
-<table>
-  <tr>
-    <td align="center" width="25%">
-      <br>
-      <strong>🔗 Webhooks</strong><br><br>
-      Real-time POST deliveries with retries, circuit breaker, topic filters, and batch mode
-      <br><br>
-    </td>
-    <td align="center" width="25%">
-      <br>
-      <strong>📅 Scheduled Jobs</strong><br><br>
-      Cron expressions, recurring tasks, execution history, and external URL triggers
-      <br><br>
-    </td>
-    <td align="center" width="25%">
-      <br>
-      <strong>🔒 Security</strong><br><br>
-      Encryption at rest, MFA/TOTP, anomaly detection, audit log, and rate limiting
-      <br><br>
-    </td>
-    <td align="center" width="25%">
-      <br>
-      <strong>🌍 GDPR</strong><br><br>
-      Data export, right to erasure, consent management, and processing restrictions
-      <br><br>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <br>
-      <strong>📡 98+ API Endpoints</strong><br><br>
-      JWT and API Key auth with OpenAPI 3.0 and interactive Swagger UI
-      <br><br>
-    </td>
-    <td align="center">
-      <br>
-      <strong>⚡ Real-time</strong><br><br>
-      LiveView dashboard, SSE streaming, WebSocket support, and live notifications
-      <br><br>
-    </td>
-    <td align="center">
-      <br>
-      <strong>🔄 Pipelines</strong><br><br>
-      Multi-step event processing workflows with transformations and chaining
-      <br><br>
-    </td>
-    <td align="center">
-      <br>
-      <strong>👥 Teams</strong><br><br>
-      Multi-project workspaces with owner, editor, and viewer roles
-      <br><br>
-    </td>
-  </tr>
-</table>
+```bash
+# Send an event
+curl -X POST "https://jobcelis.com/api/v1/events" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"topic":"order.created","order_id":123,"total":99.99}'
+
+# Stream events in real-time (SSE)
+curl -N "https://jobcelis.com/api/v1/stream" \
+  -H "Authorization: Bearer YOUR_TOKEN"
+```
 
 <br>
 
@@ -191,7 +330,7 @@ Official SDKs with **full API coverage** across **15 languages and tools**:
 
 <div align="center">
 
-**[Documentation](https://jobcelis.com/docs)** · **[Get Started](https://jobcelis.com/signup)**
+**[Documentation](https://jobcelis.com/docs)** · **[Get Started](https://jobcelis.com/signup)** · **[API Reference](https://jobcelis.com/docs#events)** · **[Status](https://jobcelis.com/status)**
 
 <sub>Built with Elixir/OTP for reliability and concurrency at scale.</sub>
 
