@@ -1,0 +1,35 @@
+name: Push release
+description: >
+  After a successful publish: pushes the version commit (if any) to the branch
+  and tags the release. Safe to re-run: an existing tag is left alone.
+inputs:
+  tag:
+    description: Tag to create
+    required: true
+  push-commit:
+    description: '"false" where the branch is protected (the version then lives in the tags only)'
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        TAG: ${{ inputs.tag }}
+        PUSH_COMMIT: ${{ inputs.push-commit }}
+        BRANCH: ${{ github.ref_name }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        if [ "$PUSH_COMMIT" = "true" ] && [ -n "$(git log "origin/$BRANCH..HEAD" --oneline)" ]; then
+          # Another commit may have landed while publishing
+          git pull -q --rebase origin "$BRANCH"
+          git push -q origin "HEAD:$BRANCH"
+          echo "Pushed the version commit to $BRANCH"
+        fi
+        if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null; then
+          echo "Tag $TAG already exists"
+        else
+          git tag -a "$TAG" -m "$TAG"
+          git push -q origin "$TAG"
+          echo "Tagged $TAG"
+        fi

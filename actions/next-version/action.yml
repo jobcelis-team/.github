@@ -1,0 +1,38 @@
+name: Next version
+description: >
+  Decides whether to release and which version, from the last release tag and
+  the files changed since. A change to the code or the dependencies releases the
+  next patch version; docs, tests, CI and repo config release nothing. A version
+  set by hand above the last release is used as is.
+inputs:
+  current:
+    description: Version in the package manifest
+    required: true
+  tag-prefix:
+    description: 'Tag prefix: "v" for vX.Y.Z, "" for X.Y.Z, "node-v" for node-vX.Y.Z'
+    default: "v"
+  scope:
+    description: Path whose changes count (a package inside a monorepo)
+    default: "."
+outputs:
+  version:
+    description: Version to release (or the last release when there is nothing to do)
+    value: ${{ steps.next.outputs.version }}
+  tag:
+    description: Tag for that version
+    value: ${{ steps.next.outputs.tag }}
+  release:
+    description: '"true" when there is something to release'
+    value: ${{ steps.next.outputs.release }}
+runs:
+  using: composite
+  steps:
+    - id: next
+      shell: bash
+      env:
+        CURRENT: ${{ inputs.current }}
+        PREFIX: ${{ inputs.tag-prefix }}
+        SCOPE: ${{ inputs.scope }}
+      run: |
+        git fetch --tags --force --quiet
+        "$GITHUB_ACTION_PATH/next-version.sh" | tee -a "$GITHUB_OUTPUT"

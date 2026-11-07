@@ -1,0 +1,19 @@
+# Runs the release-version scenarios whenever the shared actions change.
+name: Test actions
+
+on:
+  pull_request:
+    paths: ["actions/**", ".github/workflows/test-actions.yml"]
+  push:
+    branches: [main]
+    paths: ["actions/**", ".github/workflows/test-actions.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  next-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: actions/next-version/test.sh

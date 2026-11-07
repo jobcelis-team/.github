@@ -1,0 +1,25 @@
+name: Commit version
+description: >
+  Commits the version written into the manifest, locally only, so the package is
+  built from a clean tree. push-release pushes it after a successful publish;
+  if publishing fails, nothing reaches the repository.
+inputs:
+  version:
+    description: Version being released
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        VERSION: ${{ inputs.version }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add -A
+        if git diff --cached --quiet; then
+          echo "The manifest already has $VERSION"
+        else
+          git commit -q -m "chore: release $VERSION [skip ci]"
+          echo "Committed $VERSION locally"
+        fi
