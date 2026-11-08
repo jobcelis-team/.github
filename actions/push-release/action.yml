@@ -1,13 +1,23 @@
 name: Push release
 description: >
-  After a successful publish: pushes the version commit (if any) to the branch
-  and tags the release. Safe to re-run: an existing tag is left alone.
+  After a successful publish: pushes the version commit (if any) to the branch,
+  tags the release and creates its GitHub Release with notes generated from the
+  commits since the previous release of the same package. Safe to re-run: an
+  existing tag or release is left alone. Needs `contents: write`.
 inputs:
   tag:
     description: Tag to create
     required: true
   push-commit:
     description: '"false" where the branch is protected (the version then lives in the tags only)'
+    default: "true"
+  release:
+    description: '"false" when another tool creates the GitHub Release (e.g. GoReleaser)'
+    default: "true"
+  latest:
+    description: >
+      '"false" to keep this release from being marked Latest, e.g. a package in
+      a monorepo whose Latest release belongs to the main product'
     default: "true"
 runs:
   using: composite
@@ -33,3 +43,28 @@ runs:
           git push -q origin "$TAG"
           echo "Tagged $TAG"
         fi
+
+    - if: inputs.release == 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+        TAG: ${{ inputs.tag }}
+        LATEST: ${{ inputs.latest }}
+      run: |
+        if gh release view "$TAG" >/dev/null 2>&1; then
+          echo "Release $TAG already exists"
+          exit 0
+        fi
+        # Notes start at the previous tag of the same package: "node-v1.9.1"
+        # follows "node-v1.9.0", never another package's tag in a monorepo.
+        PREFIX=$(printf '%s' "$TAG" | sed -E 's/v?[0-9]+\.[0-9]+\.[0-9]+$//')
+        PREVIOUS=$(git ls-remote --tags --refs origin \
+          | sed 's#.*refs/tags/##' \
+          | grep -E "^${PREFIX}v?[0-9]+\.[0-9]+\.[0-9]+$" \
+          | sort -V \
+          | grep -B1 -x -F "$TAG" \
+          | sed '$d' || true)
+        ARGS=(--title "$TAG" --verify-tag --generate-notes --latest="$LATEST")
+        if [ -n "$PREVIOUS" ]; then ARGS+=(--notes-start-tag "$PREVIOUS"); fi
+        gh release create "$TAG" "${ARGS[@]}"
+        echo "Released $TAG"
